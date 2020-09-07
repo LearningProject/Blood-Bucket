@@ -1,0 +1,9 @@
+.login{
+    background: url('../../assests/bloodbank.jpg');
+    width:98%;
+    height:99vh;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
