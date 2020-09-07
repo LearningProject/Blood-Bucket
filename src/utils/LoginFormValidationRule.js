@@ -1,6 +1,13 @@
 export default function validate(values) {
   let errors = {};
-  console.log('vaalues',Object.keys(values).length,values);
+  if (Object.keys(values).length > 0 && values.constructor === Object) {
+    for(let[key, value] of Object.entries(values)){
+      console.log('value',value);
+      if(!value.length){
+        delete values[key];
+      }
+    }
+  }
   if (Object.keys(values).length === 0 && values.constructor === Object) {
     errors.name = '*Name is reuired';
     errors.password = '*Password  is required';
@@ -20,6 +27,7 @@ export default function validate(values) {
      errors =  {captchaResponse : "*captcha is not matched"};
   }
 }
+console.log('errors',errors);
   return errors;
 };
 function removeSpaces(string) {
